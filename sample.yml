@@ -1,20 +1,22 @@
 ---
-client_scope1:
-  allow_scopes:
-    - "read"
-    - "write"
-    - "admin"
-  AllowScopes:
-    - "read"
-    - "write"
-    - "admin"
+client_scope_1:
+  scopes: &test
+    allow_scopes:
+      - "read"
+      - "write"
+      - "admin"
+    AllowScopes:
+      - "read"
+      - "write"
+      - "admin"
 
 client_scope_2:
-  allow_scopes:
-    - "read"
-    - "write"
-    - "admin"
-  AllowScopes:
-    - "read"
-    - "write"
-    - "admin"
+  scopes: &test
+    allow_scopes:
+      - "read"
+      - "write"
+      - "admin"
+    AllowScopes:
+      - "read"
+      - "write"
+      - "admin"
