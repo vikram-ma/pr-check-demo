@@ -8,7 +8,7 @@ client_scope1:
     - "write"
     - "admin"
 
-client_scope2:
+client_scope:
   allow_scopes:
     - "read"
     - "write"
