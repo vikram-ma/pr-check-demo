@@ -37,6 +37,6 @@ jobs:
           mkdir -p ~/.bin
           curl -sfL https://raw.githubusercontent.com/reviewdog/reviewdog/master/install.sh | sh -s -- -b ~/.bin v0.10.0
           curl -sfL https://git.io/misspell | sh -s -- -b ~/.bin
-          find . -type f -regextype posix-extended -regex '^\./content/.*\.(md|yaml)$' -print0 | xargs -0 ~/.bin/misspell | ~/.bin/reviewdog -efm="%f:%l:%c: %m" -name="misspell" -reporter=github-pr-check -level=error
+          find *.md -print0 | xargs -0 ~/.bin/misspell | ~/.bin/reviewdog -efm="%f:%l:%c: %m" -name="misspell" -reporter=github-pr-check -level=error
         env:
           REVIEWDOG_GITHUB_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
