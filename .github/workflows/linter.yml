@@ -25,5 +25,5 @@ jobs:
   
       - name: Setup yamllint
         run: |
-          apt-get install yamllint
+          sudo apt-get install yamllint
           yamllint *.yml *.yaml
