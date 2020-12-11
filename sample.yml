@@ -1,0 +1,19 @@
+client_scope1:
+  allow_scopes:
+    - "read"
+    - "write"
+    - "admin"
+  AllowScopes:
+    - "read"
+    - "write"
+    - "admin"
+
+client_scope2:
+  allow_scopes:
+    - "read"
+    - "write"
+    - "admin"
+  AllowScopes:
+    - "read"
+    - "write"
+    - "admin"
