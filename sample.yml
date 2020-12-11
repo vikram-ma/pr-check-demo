@@ -12,14 +12,6 @@ client_scope_1:
 
 client_scope_2:
   scopes: &test
-    allow_scopes:
-      - "read"
-      - "write"
-      - "admin"
-    AllowScopes:
-      - "read"
-      - "write"
-      - "admin"
 
 client_scope_3:
   scopes: *test
