@@ -20,3 +20,6 @@ client_scope_2:
       - "read"
       - "write"
       - "admin"
+
+client_scope_3:
+  scopes: *test
