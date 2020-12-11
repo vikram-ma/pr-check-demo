@@ -25,15 +25,18 @@ jobs:
         
       - name: Setup Python
         uses: actions/setup-python@v2.1.4
-#         with:
-          # Version range or exact version of a Python version to use, using SemVer's version range syntax.
-#           python-version: # optional, default is 3.x
-          # The target architecture (x86, x64) of the Python interpreter.
-#           architecture: # optional
-          # Used to pull python distributions from actions/python-versions. Since there's a default, this is typically not supplied by the user.
-#           token: # optional, default is ${{ github.token }}
   
-      - name: Setup yamllint
+      - name: Install yamllint
+        run: pip install --user yamllint
+          
+      - name: Lint yaml
+        run: yamllint *.yml
+          
+      - name: Check typos
         run: |
-          pip install --user yamllint
-          yamllint *.yml
+          mkdir -p ~/.bin
+          curl -sfL https://raw.githubusercontent.com/reviewdog/reviewdog/master/install.sh | sh -s -- -b ~/.bin v0.10.0
+          curl -sfL https://git.io/misspell | sh -s -- -b ~/.bin
+          find . -type f -regextype posix-extended -regex '^\./content/.*\.(md|yaml)$' -print0 | xargs -0 ~/.bin/misspell | ~/.bin/reviewdog -efm="%f:%l:%c: %m" -name="misspell" -reporter=github-pr-check -level=error
+        env:
+          REVIEWDOG_GITHUB_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
